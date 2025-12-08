@@ -1,0 +1,1174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if gt IE 1]><html xmlns="http://www.w3.org/1999/xhtml" class="ie"><![endif]-->
+<!--[if !IE]><!--><html xmlns="http://www.w3.org/1999/xhtml"><!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml/" lang="en" xml:lang="en">
+	<head>
+        <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+        <meta name="Description" content="View georeferenced historic maps as overlays on modern satellite, LiDAR and map layers" />
+		<title>Georeferenced Maps viewer - Map images - National Library of Scotland</title>
+		<meta name="Keywords" content="Georeferenced maps, Ordnance Survey georeferenced maps, LiDAR, Google satellite, ESRI Topographic, OpenStreetMap, Ordnance Survey Leisure Maps, Ordnance Survey Landranger, Ordnance Survey Outdoor Leisure, measurement tools, drawing tools, elevation profile tool, show height, print map, save image, export map, map legend, overlays, OGC web services, gazetteers, National Grid reference search, county and parish search" />
+		<meta name="thumbnail" content="https://maps.nls.uk/geo/img/explore-thumb.jpg" />
+		<link type="text/css" rel="stylesheet" href="https://maps.nls.uk/assets/css/maps-chrome.css" media="screen" />
+		<link type="text/css" rel="stylesheet" href="https://maps.nls.uk/assets/css/maps-chrome-mapviewer.css" media="screen" />
+		<link type="text/css" rel="stylesheet" href="https://maps.nls.uk/assets/css/maps-content-forms.css" media="screen" />
+		<link type="text/css" rel="stylesheet" href="https://maps.nls.uk/assets/css/maps-content-general.css" media="screen" />
+		<link type="text/css" rel="stylesheet" href="https://maps.nls.uk/assets/css/maps-content-mapviewer.css" media="screen" />
+
+		<link type="text/css" rel="stylesheet" href="https://maps.nls.uk/assets/css/GpPluginOpenLayers.css" media="screen" />
+  		<link type="text/css" rel="stylesheet" href="https://maps.nls.uk/assets/css/openlayers6.15exploreN.css" />
+
+
+		<link type="text/css" rel="stylesheet" href="https://maps.nls.uk/assets/css/viewer-print.css" media="print" />
+		<link type="text/css" rel="stylesheet" href="https://maps.nls.uk/assets/css/mobile.css" media="screen and (min-width : 320px) and (max-width :  850px) " />
+
+		<!-- <link type="text/css" rel="stylesheet" href="https://maps.nls.uk/assets/css/jquery.fancybox.css" /> -->
+  		<link rel="stylesheet" href="https://maps.nls.uk/assets/css/ol-ext.css?v=2025" /> 
+		
+
+
+    	<link type="text/css" rel="stylesheet" href="https://maps.nls.uk/assets/css/bootstrap-slider.css" type="text/css">
+		<link type="text/css" rel="stylesheet" href="https://maps.nls.uk/assets/css/nouislider.css" type="text/css">
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+		
+		<!-- <link type="text/css"  rel="stylesheet" href="https://maps.nls.uk/assets/css/chartist.min.css"/> -->
+		
+		<!-- <script src="https://region-eu.libanswers.com/load_chat.php?hash=aba58fd4ff00e2846a6ff34866abca38492095ef43725efaa5d4493b89783e56"></script>   
+		<script src="https://region-eu.libanswers.com/load_chat.php?hash=aba58fd4ff00e2846a6ff34866abca38492095ef43725efaa5d4493b89783e56"></script>
+		<script src="https://api2-eu.libanswers.com/1.0/widgets/7309"></script>
+		<script src="https://api2-eu.libanswers.com/1.0/widgets/7376"></script> -->
+		
+		<script src=https://natlibscot.libanswers.com/load_chat.php?hash=aba58fd4ff00e2846a6ff34866abca38492095ef43725efaa5d4493b89783e56></script>
+
+		
+<style>
+
+
+	.slider .tooltip.bs-tooltip-top {  top: -34px !important; margin-top: 10px !important;float:right;}
+	#dateIDslider.slider   { margin-top: 5px; }
+
+
+
+     @media only screen and (min-width: 850px) {
+                #explorebuttontoggle { position:absolute; top: 56px; left:360px; background-color:#9dc1ef; border: 2px solid #592F57; border-bottom-left-radius: 6px; border-top-left-radius: 6px;padding: 0px 10px 0px 10px; font-size: 15px; } 
+                }
+           @media only screen and (max-width: 850px) {
+                #explorebuttontoggle { position:absolute; top: 68px; left:auto; background-color:#9dc1ef; border: 2px solid #592F57; border-bottom-left-radius: 6px; border-top-left-radius: 6px;padding: 0px 10px 0px 10px; font-size: 14px; } 
+                }
+           
+           //  #findbuttontoggle:active{ color:#FFFFFF; }
+           
+           @media only screen and (min-width: 850px) {
+                #explorefullbuttontoggle { position:absolute; top: 56px; left:470px; background-color:#e6e6e6; border: 1px solid #592F57; padding: 1px 10px 1px 10px; font-size: 14px; } 
+                }
+           
+           @media only screen and (max-width: 850px) {
+                #explorefullbuttontoggle { position:absolute; top: 68px; margin-left:113px; background-color:#e6e6e6; border: 1px solid #592F57; padding: 1px 10px 1px 10px; font-size: 12px; } 
+                }
+
+                #explorefullbuttontoggle:hover { background-color:#c8d9ef; }
+
+           @media only screen and (min-width: 850px) {
+                #explore3Dbuttontoggle { position:absolute; top: 56px; left:603px; background-color:#e6e6e6; border: 1px solid #592F57; padding: 1px 10px 1px 10px; font-size: 14px; } 
+                }
+           
+           @media only screen and (max-width: 850px) {
+                #explore3Dbuttontoggle { position:absolute; top: 68px; margin-left:238px; background-color:#e6e6e6; border: 1px solid #592F57; padding: 1px 10px 1px 10px; font-size: 12px; } 
+                }
+
+                #explore3Dbuttontoggle:hover { background-color:#c8d9ef; }
+
+           @media only screen and (min-width: 850px) {
+                #explorespybuttontoggle { position:absolute; top: 56px; left:646px; background-color:#e6e6e6; border: 1px solid #592F57; border-bottom-right-radius: 6px; border-top-right-radius: 6px;padding: 1px 10px 1px 10px; font-size: 14px; } 
+                }
+           
+           @media only screen and (max-width: 850px) {
+                #explorespybuttontoggle { position:absolute; top: 68px; margin-left:285px; background-color:#e6e6e6; border: 1px solid #592F57; border-bottom-right-radius: 6px; border-top-right-radius: 6px; padding: 1px 10px 1px 10px; font-size: 12px; } 
+                }
+
+                #explorespybuttontoggle:hover { background-color:#c8d9ef; }
+
+
+           @media only screen and (min-width: 50rem) {
+                #newsbuttontoggle { position:absolute; top: 56px; left:670px; background-color:#f09f54; border: 1px solid #592F57; border-bottom-right-radius: 6px; border-top-right-radius: 6px; border-top-left-radius: 6px; border-bottom-left-radius: 6px; padding: 1px 10px 1px 10px; font-size: 14px; } 
+                }
+           
+
+           @media only screen and (max-width: 60rem) {
+				#headerSearchFormSearchBox, .headerSearchForm {
+		    display: none;
+		}
+	   }
+
+           @media only screen and (min-width: 50rem) {
+		#header #re-use  {
+			position: absolute;
+		    	right: 0;
+		    	bottom: 32px;
+		    	margin: 0px 6px 0px 0;
+			font-size: 0.8em;
+		    	padding: 0;
+		}
+	   }
+
+           @media only screen and (max-width: 50rem) {
+		#header #re-use  {
+			display: none;
+		}
+	   }
+
+           @media only screen and (min-width: 44rem)	{
+		    #picture {
+		      display: block;
+		    }
+	        }
+
+           @media only screen and (max-width: 44rem)	{
+  			#picture { display: none; }
+	        }
+
+
+
+			
+           @media only screen and (min-width: 850px) {			
+				#mapViewerGeoRefMaps .ol-scale-line {left: 100px;bottom: 50px;}
+			}
+			
+           @media only screen and (max-width: 850px) {			
+				#mapViewerGeoRefMaps .ol-scale-line {left: 95px;bottom: 0.7em;}
+			}			
+			
+	        @media only screen and (min-width: 850px) {		
+				#mapViewerGeoRefMaps .ol-zoom{bottom:44px!important;left:.4em}
+			}
+			
+	        @media only screen and (max-width: 850px) {		
+				#mapViewerGeoRefMaps .ol-zoom{bottom:auto;left:.4em}
+			}
+			
+		@media only screen and (min-width: 850px) {				
+			#mapViewerGeoRefMaps #footerMenuSite { padding: 0 50px 0 0; }
+		}
+		
+		@media only screen and (max-width: 850px) {				
+			#mapViewerGeoRefMaps #footerMenuSite { padding: 0 0 0 0; }
+		}
+		.s-lch-widget-float-btn:hover {    background-color: #ed908e !important; }
+		
+		@media only screen and (max-width: 850px) {	
+			.s-lch-widget-float  { display: none !important; padding: 0 !important; font-size: 0em !important; bottom: 0 !important; right: 0 !important; }
+		}
+		
+		@media only screen and (min-width: 850px) {	
+			.s-lch-widget-float-btn { background-color: #eb5b59 !important;   width: 3.0em !important; height: 2.3em !important;   padding: 0.25em 0.5em 0.5em 0.5em !important; position: fixed !important; bottom: 2px !important; right: 2px !important; }
+		}
+		
+		@media only screen and (max-width: 850px) {	
+			.s-lch-widget-float-btn { display: none !important; padding: 0 !important; font-size: 0em !important; bottom: 0 !important; right: 0 !important; }
+		}
+		
+
+		
+	</style>
+
+
+</head>
+
+	<body id="mapViewerGeoRefMaps">
+
+	    <a class="skiplink" href="#map">Go to map</a>
+	
+		<div id="header" role="banner" style="top:0px !important">
+			<a href="https://www.nls.uk/"><img id="NLSLogo" src="/img/logo.svg" width="157" alt="National Library of Scotland" aria-label="National Library of Scotland main website" /></a>
+			<h1 id="siteTitle" class="prevent-select"><a href="https://maps.nls.uk/">Map images</a></h1>
+			<div id="pageTitle" class="prevent-select"><a href="javascript:setURL();" alt="View individual sheet maps of this area"  title="View individual sheet maps of this area" class="prevent-select">Map Finder</a> &nbsp;|&nbsp; <h2 class="geo-header" style="margin:0 !important;border-bottom: 0;display: inline;font-weight:700 !important;">Georeferenced Maps</h2> &nbsp;|&nbsp; <a href="javascript:sidebysideURL();" alt="View split-screen georeferenced maps of this area"  title="View split-screen georeferenced maps of this area">Side by Side</a></div>
+				<div class="container">
+					<div id="explorebuttontoggle" class="prevent-select"><strong>as Overlays</strong></div>
+					<div id="explorefullbuttontoggle" class="prevent-select"><a href="javascript:printURL();">Full Screen/Draw</a></div>
+					<div id="explore3Dbuttontoggle" class="prevent-select"><a href="javascript:cesiumURL();">3D</a></div>
+					<div id="explorespybuttontoggle" class="prevent-select"><a href="javascript:spyURL();">Spy</a></div>
+				</div>
+                <!-- <div id="newsbuttontoggle"><a href="https://www.nls.uk/service-disruption" target="remotes">Downtime - 28 March</a></div> -->
+
+
+
+
+
+ 			 <div id="re-use" class="prevent-select"></div>
+
+			<div id="bar" class="prevent-select" style="background-color:#faf2f8">
+				<p id="URHere" class="prevent-select"></p> 
+
+			</div>
+		</div>
+
+           <div id="Modal" class="modal" class="hidden">
+           
+             <!-- Modal content -->
+             <div class="modal-content" class="hidden">
+               <span class="modal-close" class="hidden">&times;</span>
+               <div id="modal-text" class="hidden"></div>
+
+             </div>
+           
+           </div>
+
+
+		<input type="text" id="hiddenInput" style="position:absolute;left:-9999px;">
+
+		<div id="loading"><img src="https://maps.nls.uk/img/disallowed/loading-247px.gif" width="50px"  style="vertical-align: middle" alt="Loading gif" /></div>
+		
+		<button id="show" class="hidden" title="Search on placenames, coordinates or use geolocation to position the map"></button>
+
+		<div id="exitfullscreen-img" class="hidden"><img src="/geo/img/compress.png" alt="Close full-screen view" width="28"  /></div>
+
+		<div id="fullscreen-img" class="hidden"><img src="/img/fullscreen-48.png" alt="Find current location" width="28"  /></div>
+
+			</div>
+		
+		<div id="searchSideBar" class="hidden" >
+		
+		
+					
+			<button type="button" id="hide2" class="close"  aria-label="Close" class="hidden" class="prevent-select">
+			  <span aria-hidden="true" class="prevent-select">&times;</span>
+			</button>
+
+			<div id="searchSideBarheader" class="prevent-select">
+				<img src="https://maps.nls.uk/geo/img/move.png" width="30" alt="Move and drag panel" title="Select and drag this panel" class="prevent-select" />
+			</div>
+
+				<br />
+
+			<h2 id="searchSideBarLabel">Search</h2>
+
+
+
+				<fieldset>
+				  <legend class="sr-only">Choose different ways of searching to locate the map</legend>
+				  <h3 style="z-index:14000; white-space: nowrap; padding: 0">
+					<fieldset>
+					  <legend class="sr-only">Choose between searching UK or World placenames</legend>
+					  <label id="nlsgazplacenames">Modern Placenames</label>
+					  <input
+						type="radio"
+						id="nlsgazareauk"
+						name="nlsgazarea"
+						title="United Kingdom places"
+						value="uk"
+						aria-labelledby="nlsgazareauk-label"
+						checked
+					  />
+					  <label id="nlsgazareauk-label" for="nlsgazareauk">UK</label>
+					  <input
+						type="radio"
+						id="nlsgazareaworld"
+						name="nlsgazarea"
+						title="World places"
+						value=""
+						aria-labelledby="nlsgazareaworld-label"
+					  />
+					  <label id="nlsgazareaworld-label" for="nlsgazareaworld">World</label>
+					</fieldset>
+				  </h3>
+
+				  <div class="tooltip2">
+
+					<div role="combobox"  aria-expanded="false"  aria-haspopup="listbox" aria-owns="combobox-listbox" aria-controls="nlsgaz" aria-labelledby="nlsgazplacenames" >
+					  <!-- Accessible input field -->
+					  <label id="nlsgaz-label" for="nlsgaz" class="visually-hidden">
+						Enter a current placename (e.g., towns, farms, streets) to search for a location
+					  </label>
+					  <input
+						type="text"
+						autocomplete="off"
+						id="nlsgaz"
+						name="nlsgaz"
+						role="searchbox"
+						aria-autocomplete="list"
+						aria-describedby="search-description-nls tooltip-description-nls"
+						aria-expanded="false"
+						aria-controls="tooltip-description-nls"
+						onfocus="if(this.value == 'Type a modern placename...') { this.value = ''; }" onblur="this.value=!this.value?'Type a modern placename...':this.value;" value="Type a modern placename..."
+					  />
+					</div>
+
+
+					<!-- Description for assistive technologies -->
+					<p id="search-description-nls" class="visually-hidden">
+					  Enter a current placename (e.g., towns, farms, streets) to search for a location.
+					</p>
+
+					<!-- Tooltip description -->
+					<span
+					  id="tooltip-description-nls"
+					  class="tooltiptext"
+					  role="listbox"
+					>
+					  Search using a current placename (e.g., towns, farms, streets) from Nominatim / OpenStreetMap, as well as the Definitive Gazetteer for Scotland.
+					</span>
+				  </div>
+				</fieldset>
+
+
+
+			<div id="ngrsearch" >
+
+				<h3 style="z-index:14000;"><label for="ngrgaz">National Grid Ref., Lat,Lon or Postcode:</label></h3>
+          		<div class="tooltip2">
+				
+				<p style="z-index:14000;white-space: nowrap;display: inline-block;">
+				
+				<p style="z-index:14000;white-space: nowrap;display: inline-block;margin-right:5px;"><input type="search" autocomplete="off" id="ngrgaz" onfocus="if(this.value == 'Type NGR, lat,lon or postcode...') { this.value = ''; }" onblur="this.value=!this.value?'Type NGR, lat,lon or postcode...':this.value;javascript:document.getElementById('search-button-ngrgaz').style.color = '#706e6e';" value="Type NGR, lat,lon or postcode..." name="ngrgaz" role="searchbox" aria-describedby="search-description-ngr" aria-controls="search-button-ngrgaz" /> 
+
+				<p id="search-description-ngr" class="visually-hidden">Enter a National Grid Reference, latitude/longitude, or postcode to search for a location</p>
+
+				<button id="search-button-ngrgaz" type="button" aria-label="Submit this postcode or Grid Reference" aria-controls="ngrgaz" onclick="javascript:postcodegaz(document.getElementById('ngrgaz').value)">Submit</button></p>
+			
+     	     <span class="tooltiptext">Search using a National Grid Reference in various forms:<br/>"NT27", "NT27NW", "NT263721", "NT 263 721", "NT2637572134", "326375,672134", <br/>or latitude,longitude: "52.456,-2.123",<br/> or Postcode "EH", "EH9", "EH9 1", "EH9 1SL", "EH91SL" </span>	
+			</div>	 &nbsp;
+
+			</div>
+			
+            <div id="gb1900search" style="padding: 5px; background-color:rgba(0, 0, 153, 0.1); border-radius:1px; margin-bottom: 3px;" class="prevent-select">
+     
+				<p><label for="searchgb1900" class="prevent-select">OS six-inch 1888-1913 names:</label></p>
+					<div class="tooltip2">
+						<p><input type="search" autocomplete="off" id="searchgb1900" style="width:195px;" role="searchbox"	aria-autocomplete="list"
+						aria-describedby="search-description-gb1900-nls tooltip-description-nls"
+						aria-expanded="false"
+						aria-controls="tooltip-description-gb1900-nls" onfocus="if(this.value == 'Type an 1888-1913 name...') { this.value = ''; }" onblur="this.value=!this.value?'Type an 1888-1913 name...':this.value;" value="Type an 1888-1913 name..." aria-describedby="search-description-gb1900" aria-expanded="false"   />  or </p>
+						
+
+						<p id="search-description-gb1900" class="visually-hidden">Search for an historic name from the GB1900 gazetteer of names on the OS six-inch 1888-1913 maps</p>
+						
+						<span class="tooltiptext" id="tooltip-description-gb1900-nls" role="listbox">Search for an historic name from the GB1900 gazetteer of names on the OS six-inch 1888-1913 maps</span>
+					</div>	 &nbsp;
+					<div>
+						<div class="tooltip2">
+							<a href="javascript:gotoOS1900();" class="prevent-select" aria-label="Search OS six-inch 1888-1913 features and view their distribution on a map" style="font-size: 0.9em">Search and view distributions of names</a>
+							<span class="tooltiptext">Go to the OS1900 viewer to search and view the distribution of features and names from OS six-inch 1888-1913 maps</span>
+						</div>
+					</div>
+                 </div>
+
+					<!-- Description for assistive technologies -->
+					<p id="search-description-gb1900-nls" class="visually-hidden">
+					  Enter an historic placename from the GB1900 gazetteer of names to search for a location.
+					</p>
+
+
+                     <div id="trenchmapsearch" style="padding: 5px; background-color:rgba(0, 0, 153, 0.1); border-radius:1px; margin-bottom: 3px;" class="prevent-select">
+     
+                     <p class="prevent-select"><label for="searchtrenchmap"- >Search Trench Map Coordinates:</label></p>
+     		<div class="tooltip2">
+                     <input type="search" autocomplete="off" id="searchtrenchmap" style="width:215px;" onfocus="if(this.value == 'Type Trench Map Coordinates...') { this.value = ''; }" onblur="this.value=!this.value?'Type Trench Map Coordinates...':this.value;" value="Type Trench Map Coordinates..."  class="prevent-select"/>
+	     <span class="tooltiptext">Search using Trench Map Coordinates, eg.<br/>28.I.8<br/>36C.S.22.c<br/>62d.J.19.b.4.3</span>
+			</div>	 &nbsp;
+                     </div>
+
+			
+			<div id="countysearch">
+				<h3><label for="county" id="search-county-label">Search County:</label> </h3>
+					<div class="tooltip2">
+						<select id="county" name="county" aria-labelledby="search-county-label" aria-describedby="county-description"></select>
+							<p id="county-description" class="tooltiptext">Search using counties and parishes from the 1950s</p>
+						<span class="tooltiptext">Search using counties and parishes from the 1950s</span>	
+					</div>	 &nbsp;
+					
+						<h3 id="parish_span"><label for="parish" id="search-parish-label">Parish:</label></h3> 
+
+					<select id="parish" name="parish" aria-labelledby="search-parish-label" aria-describedby="parish-description" class="hidden"></select>
+					<p id="parish-description" class="visually-hidden">Select a parish within the chosen county</p>
+
+            </div>
+
+
+			<div id="trackgeolocation" style="margin-top:5px"><div class = "searchPanel-img"><img src="/img/geolocation.png" alt="Use geolocation" width="28" /></div>
+		             <label for="track">
+			      Show my location?</label>
+			      <input id="track" type="checkbox" name="track" />
+			    
+	
+				  <div id="zoomtogeolocation" class="prevent-select" class="hidden" ></div>			
+		          <div id="info" style="display: none;"></div>
+			</div>
+			</fieldset>
+				
+
+		</div>
+
+		<button id="showlayersOutlinesExplore" class="hidden" title="Choose historic map overlay layers for viewing" class="prevent-select"></button>
+
+		<div id="layersSideBarOutlines" class="hidden" class="prevent-select">
+
+  			
+			<div id="layersSideBarOutlinesheader">
+				<img src="https://maps.nls.uk/geo/img/move.png" width="30" alt="Move and drag panel" title="Select and drag this panel" class="prevent-select" />
+			</div>
+
+
+			<button type="button" id="hidelayers" class="close"  aria-label="Close" class="hidden" class="prevent-select" class="prevent-select">
+			  <span aria-hidden="true" class="prevent-select">&times;</span>
+			</button>
+				<br/>
+
+
+
+  			<h4 style="margin-top:5px;" class="prevent-select">Choose an historic map overlay:</h4>
+			
+
+	          		<div class="tooltip3">
+						<div id="splitlist" class="prevent-select" class="hidden" >
+						
+							
+
+							<p class="prevent-select"><label for="overlaySelectNode" >1. Select a category:</label><select id="overlaySelectNode" onchange="javascript:loadOverlayNode();switchOverlay();" style="margin-top: 4px"></select></p>
+							<p class="prevent-select"><label for="overlaySelectLayer" >2. Select a map / map series:</label><select id="overlaySelectLayer" onchange="javascript:switchOverlay();" style="margin-top: 4px"></select></p>
+							
+
+
+							<p id="zoomtoextent" style="font-size:0.9em;" alt="Zoom the map to view the full extent of the layer above" title="Zoom the map to view the full extent of the layer above"><a href="javascript:zoomtoextent();" class="prevent-select">Zoom to this layer's extents</a>
+							
+							<span style="font-weight:normal;font-size:0.95em; float:right;border: 1px solid #636363;padding:2px 3px 3px 3px;background-color:#f8f8f8" alt="View the list of overlays above as a single list" title="View the list of overlays above as a single list" onmouseover="this.style.backgroundColor='#d9d9d9'" onmouseout="this.style.backgroundColor='#f8f8f8'"><a href="javascript:singleList();" >View single List</a></span></p>
+							
+
+
+						</div>
+
+				     <span class="tooltiptext">Browse and select overlay layers as a split-list - using both drop-down lists</span>
+				</div>	
+
+
+
+					<div class="tooltip3">	
+							<div id="singlelist" class="prevent-select" class="hidden" style="border: 1px solid #636363;padding:2px 3px 3px 3px; margin: 0 0 5px -5px; background-color: #e2e2e2" >
+				
+					
+								<div class="sortlist" style="z-index:14000;white-space: nowrap;padding:0 10px 4px 0;font-size:0.8em" class="prevent-select" >
+								<label for="sort" >Sort list below by </label>
+									<input type="radio" id="sortrelevance" name="sort" value="relevance" title="Sort list by relevance" checked >Relevance
+									<input type="radio" id="sortscale" name="sort" title="Sort list by scale" value="scale" >Scale 
+									<input type="radio" id="sortdate" name="sort" value="date" title="Sort list by dates" >Date
+								</div>
+
+					
+								<select id="overlaySelectdropdown" onchange="changeoverlay(this.selectedIndex)" title="change overlay layer" class="prevent-select"></select>
+								
+								
+							   <p id="zoomtoextent" style="font-size:0.9em;" alt="Zoom the map to view the full extent of the layer above" title="Zoom the map to view the full extent of the layer above"><a href="javascript:zoomtoextent();" class="prevent-select">Zoom to this layer's extents</a>
+			
+
+			
+							   <span style="font-weight:normal;font-size:0.95em; float:right;border: 1px solid #636363;padding:2px 3px 3px 3px;background-color:#FCFCFC" alt="View the list of overlays above as two-level split list" title="View the list of overlays above as a two-level split list" onmouseover="this.style.backgroundColor='#d9d9d9'" onmouseout="this.style.backgroundColor='#f8f8f8'""><a href="javascript:splitLists();" >View split lists</a></span></p>
+							   
+
+							</div>
+			
+							<span class="tooltiptext">Browse and select overlay layers as a single list. Sort by relevance, scale, or date</span>
+					</div>	
+
+
+
+
+
+		<div class = "showfilters" style="margin: 2px 0 5px 0;font-size:0.9em;padding: 0 5px 0 5px;"><!-- <span style="background-color:#f8b271;padding:3px">New (Aug 2024)</span> --> Filter overlays</div>
+		<div id = "filters" style="border: 1px solid #636363;padding:3px;margin:0 0 5px 0" class="hidden" class="prevent-select">
+
+
+
+				<div id="dateslide" >	
+
+
+						
+						<h4>Filter overlays by date</h4>
+
+							<div class="slider-styled" id="slider">
+							
+								<div id="lower-value-label" style="display: none;">
+								  Date slider Minimum Value
+								</div>
+
+								<div id="upper-value-label" style="display: none;">
+								  Date slider Maximum Value
+								</div>
+							
+							</div>
+
+						</div>
+
+
+		
+					<div id="scaleslide">
+						
+
+							<h4>Filter overlays by scale</h4> 
+
+							<div class="tooltip2">								
+										<span id="scalerange" style="display:block;font-size:0.8em;color:white;background-color:black;border-radius:3px;padding:3px;margin: auto;width: 150px;text-align: center;white-space: nowrap;"></span>
+									
+										<input id="scaleslider" data-slider-id='scaleIDslider' type="text" data-slider-value="[12,20]" data-slider-ticks="[12, 13, 14, 15, 16, 17, 18, 19, 20]" data-slider-ticks-snap-bounds="1"  data-slider-ticks-positions="[0, 12, 24, 36, 48, 60, 72, 86, 100]" data-slider-tooltip="hide" />
+
+
+								 <span class="tooltiptext">(Optionally) filter the overlay layers by scale</span>			
+							</div>	 &nbsp;						 
+							<br/>
+							
+							<div id="container" style="display:inline-block;width:100%;"><div class="float-left">Small scale</div><div class="float-right">Large scale</div></div>
+							
+							<div id="container" style="display:inline-block;width:100%;">
+							
+							<input id="layerfiltercheckbox" type="checkbox" title="Filter maps in the drop-down list by scale" style="clear:both;float:left;display:inline-block" />
+								
+									<div id="layerfilterzoom" style="margin: 3px 0 5px 0px;float:left;" class="prevent-select"><em>or</em> Filter by scale automatically (on map zoom)</div></div>
+							
+
+							
+					</div>
+	
+
+
+						<div id="keyword-search" >
+
+								<h4><label for="keywordsearch">Filter overlays by keyword</label></h4>
+
+								<div class="tooltip2">		
+									<form role="search">
+										<p style="z-index:14000;white-space: nowrap;display: inline-block;margin-right:5px;" class="prevent-select">
+										<input type="search" autocomplete="off" id="keywordsearch" onfocus="if(this.value == 'Type keyword...') { this.value = ''; }" onblur="this.value=!this.value?'Type keyword...':this.value;javascript:document.getElementById('search-button-keywordsearch').style.color = '#706e6e';" value="Type keyword..." name="keywordsearch"  aria-describedby="keywordsearch-description"  /> 
+
+									<p id="keywordsearch-description" class="sr-only">
+										(Optionally) filter the overlay layers by keyword
+									</p>
+									 
+										<div id="search-button-keywordsearch" onclick="javascript:keywordsearchgaz(document.getElementById('keywordsearch').value)" class="prevent-select">Search</div></p>
+									</form>
+								<span class="tooltiptext">(Optionally) filter the overlay layers by keyword</span>
+							</div>	 
+
+						</div>
+
+
+					<div id="keyword" class="prevent-select" class="hidden">
+						          	<div class="tooltip2">		
+										<h4>
+											<label for="filteroverlaysinput">Filter overlays by keyword</label>
+										</h4>
+										<input type="text" id="filteroverlaysinput" onkeyup="filterlist()"  onfocus="if(this.value == 'Type keyword...') { this.value = ''; }" onblur="this.value=!this.value?'Type keyword...':this.value;" value="Type keyword..." aria-describedby="filter-description" >
+					
+									<p id="filter-description" class="sr-only">
+										(Optionally) filter the overlay layers by keyword
+									</p>
+					
+									 <span class="tooltiptext">(Optionally) filter the overlay layers by keyword</span>
+									</div>	
+
+					</div>
+
+					<div id="clearfilters" class="hidden"><a href="javascript:clearfilters();">Clear filters</a></div>
+
+
+
+
+			<div id="layerinfo" style="clear:both;font-size:0.85em;padding:3px;background-color:rgba(0, 0, 153, 0.1);border-radius:1px;margin-bottom: 3px;width:290px;" class="prevent-select"></div>
+			
+</div>
+		
+			<div id="exploreslideroverlay" class="prevent-select">
+				<h4 class="prevent-select">Change transparency of overlay:</h4>
+	      			
+						<div class="slider-round" id="slider-round">
+						
+								<div id="value-label" style="display: none;">
+								  Overlay transparency slider Value - Desktop
+								</div>
+						
+						</div>
+	      			
+			</div>
+
+
+			</div>
+
+
+
+							<div id="layerSelectDiv" class="hidden">
+					<select id="layerSelectdropdown" onchange="changemap(this.selectedIndex)" onfocus="geolocationMobileCheck();" title="change background layer" class="prevent-select" class="hidden"></select>
+					<div id="layerSelectchange" class="hidden" class="prevent-select">or <a href="javascript:switchtoalllayers();" alt="View a list of all the overlays to select any as a background layer" title="View a list of all the overlays to select any as a background layer" >Choose any other layer as background</a></div>
+				</div>	
+					
+					<div id="layerSelectBackground" class="hidden" class="prevent-select">
+
+						<button type="button" id="hidelayerSelectBackground" class="close"  aria-label="Close" class="hidden" class="prevent-select">
+						  <span aria-hidden="true" class="prevent-select">&times;</span>
+						</button>
+
+						<p class="prevent-select"><label for="overlaySelectNodeRight">1. Background map - Select a category: </label><select id="overlaySelectNodeRight" onchange="javascript:loadOverlayNodeRight();switchOverlayRight();" onfocus="geolocationMobileCheck();" style="margin-top: -4px"></select></p>
+						<p class="prevent-select"><label for="overlaySelectLayerRight">2. Background map - Select a map series: </label><select id="overlaySelectLayerRight" onchange="javascript:switchOverlayRight();" onfocus="geolocationMobileCheck();" style="margin-top: 4px"></select></p>
+					
+					</div>
+
+
+
+
+					<div id="elevationprofilemessage"></div>
+
+
+						<div id="drawControlFormElevation-div" class="hidden">Show height: &nbsp;</label>
+
+							  <fieldset>
+								<legend class="sr-only">Show height</legend>
+
+
+							<div class="onoffswitch">
+								<input type="checkbox" name="myonoffswitch" class="onoffswitch-checkbox" id="myonoffswitch"  >
+								<label class="onoffswitch-label" for="myonoffswitch" title="Switch height information of mouse cursor location off or on">
+								<span class="visually-hidden">Switch height information of mouse cursor location off or on</span>
+									<span class="onoffswitch-inner" ></span>
+									<span class="onoffswitch-switch" title="switch on" aria-hidden="true"></span>
+								</label>							
+							</div>
+										
+							<div id = "elev-result" aria-live="polite" aria-atomic="true" style="font-size:0.9em" title="heights in metres and feet"></div>
+							</fieldset>
+						</div>
+						
+
+						
+						<div id="drawControlFormProfile-div">Elevation Profile:
+							<fieldset>
+								<legend class="sr-only">Draw elevation profile</legend>
+							<div class="onoffswitch-profile">
+								<input type="checkbox" name="onoffswitch-profile" class="onoffswitch-profile-checkbox" id="myonoffswitchprofile" >
+								<label class="onoffswitch-profile-label" for="myonoffswitchprofile" title="Draw a route and show its elevation profile">
+									<span class="visually-hidden">Switch on to trace a line and view its elevation profile</span>
+									<span class="onoffswitch-profile-inner"></span>
+									<span class="onoffswitch-profile-switch" title="switch on" aria-hidden="true"></span>
+								</label>
+
+							</div>
+						  </fieldset>		
+						</div>
+							
+
+
+			<div id="map" aria-labelledby="pageTitle" role="region" tabindex="0">
+			
+
+ 
+					<div id="stopmeasuringmessage"></div>
+ 
+					<div id="scalebar"></div>
+
+					<div id="wfsParishCountyResults"></div>
+
+					<div id="wfsResults" ></div>
+					
+					<div id="exploreslideroverlaymobile" class="hidden" class="prevent-select">
+
+									<div class="slider-round" id="slider-round-mobile">
+									
+											<div id="value-label-mobile" style="display: none;">
+											  Overlay transparency slider Value - Mobile
+											</div>
+									
+									
+									
+									</div>
+							
+						</div>
+
+					<div id="showCoordinatesinfo" class="hidden"></div>
+					
+					<div id="showCoordinatesinfoWebGL" class="hidden"></div>
+
+					<div id="showLayersInfo" class="hidden"></div>
+
+				   <div id="popup" class="ol-popup">
+							 <a href="#" id="popup-closer" class="ol-popup-closer" aria-label="Close"></a>
+								   <div id="popup-content"></div>
+						</div>
+
+
+					<div id="googleexplore" class="hidden"></div>
+
+			
+			<div id="showImport" class="hidden"></div>
+			
+			<div id="importPanel" class="importpanel hidden">
+					<div class="importpanelHeader">
+						<div class="importpanelTitle" >Add your own layer</div>
+						<div id="importPanelClose" class="GPpanelClose" title="Close Panel"></div>
+					</div>
+				
+					<h3 style="margin: 10px 0 0 10px" label for="importFile">Add KML, GPX, GeoJSON or CSV file:</h3>
+			
+					
+					<p style="margin: 0;display: inline-block"><input type="file" accept=".geojson,.json,.kml,.gpx,.csv" id="importFile" style="width:250px;margin:10px 0 0 10px;"  name="importFile" role="searchbox" aria-describedby="search-description-importFile" aria-controls="importVector" /> 
+						
+						
+					<input id="importVector" class="inputSubmit" type="submit" value="import" aria-label="Import this file" aria-controls="importFile"  ></p>
+						
+					<p id="search-description-importFile" class="visually-hidden">Browse to select a KML, GPX, GeoJSON file</p>
+
+
+					<h3 style="margin: 15px 0 0 10px" label for="loadURL">Add XYZ layer or Allmaps annotation:</h3>
+			
+					
+					<p style="margin: 0 0 5px 0;display: inline-block"><input type="search"  id="loadURL" style="width:250px;margin:10px 0 0 10px;" onfocus="if(this.value == 'Add XYZ or Allmaps URL...') { this.value = ''; }" onblur="this.value=!this.value?'Add XYZ or Allmaps URL...':this.value;" value="Add XYZ or Allmaps URL..." name="loadURL" role="searchbox" aria-describedby="search-description-loadURL" aria-controls="importSubmit" /> 
+						
+						
+					<input id="importSubmit" class="inputSubmit" type="submit" value="LOAD" aria-label="Load this URL" aria-controls="loadURL" onclick="javascript:loadurl(document.getElementById('loadURL').value)" ></p>
+						
+					<p id="search-description-loadURL" class="visually-hidden">Paste in the Allmaps Annotation or XYZ template</p>
+
+					<p style="margin: 0 0 20px 20px;"><a href="javascript:gotoexploreallmaps();">Find georeferenced Allmaps</a>.</p>
+
+
+
+			</div>
+
+
+					<div id="mapkeypanel" class="hidden">
+						<div id="mapkeypanelheader" style="cursor: move">
+							<img src="https://maps.nls.uk/geo/img/move.png" width="30" alt="Move and drag panel" title="Select and drag this panel" id="panelmoveicon" />
+								<button type="button" id="mapkeypanelhide" class="close"  aria-label="Close" class="hidden" ><span aria-hidden="true">&times;</span></button>
+						</div>
+
+						<div id="mapkeypanelcontent"></div>
+					</div>
+
+
+
+						<div id="showRoyinfo"></div>
+						
+						<div id="showEdinburghinfo"></div>
+
+				
+					<div id="editallmaps" class="hidden"> <a href="javascript:removeAllmaps()">Remove Allmaps overlay</a>&nbsp;|&nbsp; <div id="allmapseditorlink"></div></div>
+				
+						<div id="deletesketch" class="hidden"><div id="deletesketchinfo"></div> <a href="javascript:removeTopLayer()">Remove top layer</a>&nbsp;|&nbsp;<span id="toplayervisibility"></span>
+						<br/>
+
+				<div id="deletesketchexport">
+						Export Format: <input type="radio" class="radio" name="exportFormat" value="KML" id="radioKML" /> <label for="radioKML" alt="Export KML file"  title="Export KML file">KML</label><input type="radio" class="radio" name="exportFormat" value="GPX" id="radioGPX" /><label for="radioGPX" alt="Export GPX file"  title="Export GPX file">GPX</label><input type="radio" class="radio" name="exportFormat" value="GeoJSON" id="radioGeoJSON" /><label for="radioGeoJSON" alt="Export GeoJSON file in WGS84 lat/lon projection"  title="Export GeoJSON file in WGS84 lat/lon projection">GeoJSON</label> <input type="radio" class="radio" name="exportFormat" value="WKT" id="radioWKT" /><label for="radioWKT" alt="Download Well-Known Text (WKT) format"  title="Download Well-Known Text (WKT)">WKT</label> <input type="radio" class="radio" name="exportFormat" value="GeoJSONBNG" id="radioGeoJSONBNG" /><label for="radioGeoJSONBNG" alt="Download GeoJSON file in British National Grid projection"  title="Download GeoJSON file in British National Grid projection">GeoJSON (BNG)</label>  <input type="radio" class="radio" name="exportFormat" value="CSV" id="radioCSV" /><label for="radioCSV" alt="Download CSV file"  title="Download CSV file">CSV</label>
+				</div>
+						</div>
+		
+		
+		</div>
+			
+			
+											
+
+
+		<a id="autoStart" style="display:none" href="#data"  alt="Georeferenced Maps - Initial Help Instructions" title="Georeferenced Maps - Initial Help Instructions"></a>
+           <div style="display: none;">
+       <div id="data" >
+	  <br/>
+           <h2>Georeferenced Maps - Help</h2>
+
+
+           <p>This application presents a series of maps "seamed" together and aligned with their real world locations. </p>
+		   
+		   <!-- <p><span style="background-color:#f8b271;padding:3px">New (Aug 2024)</span> Switch overlay lists and filter overlays (<a href="help.html#switch-overlays">further details</a>)</p> -->
+
+
+           <h3>Read the <strong><span style="background-color:#e17900;padding:3px;">Help</span></strong> to the lower left for further guidance <!--, or watch a <a href="https://maps.nls.uk/videos/?vid=Georeferenced-Maps-Help-2023">Help Video</a>. --></h3>
+
+     
+         <p>Click the cross (top right) to close this window.</p>
+     
+         <p>
+         <a id="noShow" href="javascript:dontShow()">Don't show this message again</a>
+         </p>
+        </div>
+     </div>
+
+
+	  <div class="options hidden">
+	  
+	  
+	  		<button type="button" id="hidechart" class="close"  aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		<h2 style="font-weight:bold;">Elevation Profile</h2>
+		<a target="_new" class="btn" onclick="javascript:printProfile();">Export PNG</a>
+	  </div>	 
+	 
+	 <div class= "mobile">
+	 
+			<div id="geolocation-img" class="hidden"><img src="/img/geolocation.png" alt="Find current location" width="28"  /></div>
+			
+				<div id="morePanel">
+							<button type="button" id="closemorePanel" class="close"  aria-label="Close" class="hidden">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						<ul style="list-style: none;padding-inline-start: 0px;" >
+
+
+						<li><div class="morePanel-img"><img src="/img/recycle.png" alt="re-use icon image" width="28" /></div><div id="re-use-mobile"></div></li>
+						</ul>
+
+						<h3>Functions</h3>
+
+						<div id="wfsResults-mobile"></div>						
+						<ul style="list-style: none;padding-inline-start: 0px;  font-size: 1.0em !important;" >
+
+						<li><div class="morePanel-img"><img src="/img/showcoordinates.png" alt="show map coordinates icon image" width="28" /></div><a href="javascript:getcoordinates();" title="Display a popup box showing geographic coordinates of the point you click on">Show Coordinates</a></li>
+						<li><div class="morePanel-img"><img src="/img/marker.png" alt="marker pin icon image" width="28" /></div><a href="javascript:addmarker();" title="Add a marker pin onto the map">Add Marker</a></li>
+						<li><div class="morePanel-img"><img src="/img/legend-50.png" alt="map legend icon image" width="28" /></div><a href="javascript:getmapkey();" title="Show a legend of symbols and features for this map">Map Key</a></li>
+						<!-- <li><div class="morePanel-img"><img src="/img/fullscreen-48.png" alt="full-screen icon image" width="28" /></div><a href="javascript:printURL();">Full-screen</a></li> -->
+						
+						<li><a href="javascript:addlinkmobile();" title="Create a specific URL linking to this part of the map on screen" style="text-decoration: underline;color:blue;user-select:none;cursor:pointer;vertical-align: middle;"><div class="morePanel-img"><img src="/img/link-icon.png" alt="link icon image" width="28" /></div>Link to this page</a></li>
+						
+
+
+						</ul>
+						
+						<div class="hr"></div>
+						
+						<h3>Links</h3>
+						<ul style="list-style: none;padding-inline-start: 0px;  font-size: 1.0em !important;" >
+					
+						<li><div class="morePanel-img"><img src="/img/abc-48.png" alt="abbreviations icon image" width="28" /></div><a href="https://maps.nls.uk/os/abbrev/" title="View Ordnance Survey abbreviations list">Ordnance Survey abbreviations</a></li>
+						<li><div class="morePanel-img"><img src="/img/map-marker.png" alt="map marker icon image" width="28"  /></div><a href="javascript:setURL();">Map Finder</a> - view maps of this area in the <em>Map Finder</em> viewer</li> 
+						<li><div class="morePanel-img"><img src="/img/sidebyside.png" alt="world icon image" width="28"  /></div><a href="javascript:sidebysideURL();">Side by Side</a> - view this area in the <em>Side by Side</em> viewer</li>
+						<li><div class="morePanel-img"><img src="/img/global-search.png" alt="global mapping search icon image" width="28" /></div><a href="javascript:geolinks();" title="View other external map websites for this location">View external mapping sites</a> for this area</li>
+						<li><a href="https://maps.nls.uk/contact.html"><div class="morePanel-img"><img src="/img/contact.png" alt="contact icon image" width="28" /></div>Contact us</a></li>
+						<li><a href="https://maps.nls.uk/site-map/"><div class="morePanel-img"><img src="/img/sitemap.png" alt="site map icon image" width="28" /></div>Site-map</a></li>
+
+						</ul>
+						
+						
+
+
+				</div>
+			
+				<div id="footermore"  alt="More options" title="More options" class="hidden">More...</div>
+				
+				<div id="mobile-notification" class="hidden">&nbsp;</div>
+				
+				<div id="WMTSModal" class="WMTSmodal">
+
+				  <div class="modal-content">
+					<span class="WMTSclose">&times;</span>
+					<p><strong>URL of this page: </strong><div id="WMTScontent"></div></p><a href="javascript:copyURL()"><div class="morePanel-img"><img src="/img/copy-to-clipboard.png" alt="copy icon image" width="20" /></div>Copy to clipboard</a>&nbsp;&nbsp;<div id="clipboard-response"></div>
+				  </div>
+
+				</div>
+
+
+
+		</div>
+ 
+		<div id="footermobile" class="hidden">
+		
+					<ul id="footerMenuViewermobile">
+
+				<li class="footerhelpmobile"><a href="help.html">Help</a></li>
+			</ul>
+		
+		</div>
+
+		<div id="progress-explore"></div>
+		
+		<div id="chart" class="hidden">
+					<button type="button" id="hidechart" class="close"  aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+		<div id="chartinfo"></div>
+		</div>
+		
+
+		
+		<div id="footer">
+
+
+			<ul id="footerMenuViewer">
+				<li><a href="javascript:showoverlay();" title="Re-use this georeferenced overlay in other applications">Overlay</a></li>
+				<li><a href="javascript:geolinks();" title="View other external map websites for this location">Links</a></li>
+				<li><a href="javascript:addmarker();" title="Add a marker pin onto the map">Add Marker</a></li>
+				<li><a href="javascript:getcoordinates();" title="Display a popup box showing geographic coordinates of the point you click on">Show Coordinates</a></li>
+				<li><span id = "exploremapkey"><a href="javascript:getmapkey();" title="Show a legend of symbols and features for this map">Map Key</a></span></li>
+				<li><a href="https://maps.nls.uk/enquiries.cfm" title="Obtaining images and printouts, along with Frequently Asked Questions">Enquiries &amp; Copies</a></li>
+				<li class="footerhelp" title="Guidance on how to use this viewer"><a href="help.html" target="_blank">Help</a></li>
+
+
+
+
+
+
+			</ul>
+			<!-- <p id="tip">Hold [Alt] and [Shift] keys, and<br />drag cursor to rotate.</p> -->
+				<ul id="footerMenuSite">
+					<li><a href="https://maps.nls.uk/about.html" title="Brief summary about this maps website">About</a></li>
+					<li><a href="https://maps.nls.uk/cookies.html"  title="About the cookies we use on this website">Use of cookies</a></li>
+					<li><a href="https://maps.nls.uk/site-map.html"  title="Browseable overview of this maps website">Site map</a></li>
+					<li><a href="https://maps.nls.uk/contact.html" title="Contact details for enquiries">Contact</a></li>
+
+				</ul>
+		
+		</div> 
+		
+		
+
+		
+		<script type="text/javascript">
+		var GPOpenLayers = false;
+		var WebGL = false;
+		
+			const gl = document.createElement('canvas').getContext('webgl2');
+			if (!gl) {
+			
+				$("#showCoordinatesinfoWebGL").removeClass("hidden");
+				$("#showCoordinatesinfoWebGL").css({ 'text-align': 'center' });
+				$("#showCoordinatesinfoWebGL").css({ 'min-width': '250px' });
+
+				jQuery('#showCoordinatesinfoWebGL').show();
+			
+			  if (typeof WebGL2RenderingContext !== 'undefined') {
+			  
+				document.getElementById('showCoordinatesinfoWebGL').innerHTML = 'Your browser appears to support WebGL2 but it might be disabled. Try updating your operating system and/or video card drivers to view all layers. Please contact us at <a href="mailto:maps.nls.uk">maps.nls.uk</a> for further advice.';
+				
+				console.log('your browser appears to support WebGL2 but it might be disabled. Try updating your OS and/or video card drivers');
+			  } else {
+				document.getElementById('showCoordinatesinfoWebGL').innerHTML = 'Your browser does not appear to support WebGL22, and therefore not all layers will be visible. Please contact us at <a href="mailto:maps.nls.uk">maps.nls.uk</a> for further advice.';
+
+				console.log('your browser has no WebGL2 support at all'); 
+			  }
+			  
+			  		setTimeout( function(){
+						document.getElementById('showCoordinatesinfoWebGL').innerHTML = '';
+						jQuery('#showCoordinatesinfoWebGL').hide();
+			
+				}, 14000); // delay 50 ms
+			  
+			} else {
+			  console.log('webgl2 works!');
+			  WebGL = true;
+			}
+		</script>
+
+	        <!-- <script type="text/javascript" src="/assets/scripts/jquery.fancybox.min.js"></script> 
+           	<script type="text/javascript" src="/assets/scripts/jquery.cookie.min.js"></script> -->
+ 		<script type="text/javascript" src="https://maps.nls.uk/assets/scripts/searchText.js"></script>
+    		<script type="text/javascript" src="https://maps.nls.uk/geo/scripts/bootstrap-slider-11.0.2.js"></script>
+    		<script type="text/javascript" src="https://maps.nls.uk/geo/scripts/wNumb.min.js"></script>
+    		<script type="text/javascript" src="https://maps.nls.uk/geo/scripts/nouislider.js"></script>
+		<script type="text/javascript" src="https://maps.nls.uk/geo/scripts/proj4.js"></script>
+
+		<script type="text/javascript" src="/assets/scripts/accordion.js" async></script>
+
+
+
+			<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+			<script type="text/javascript" src="https://maps.nls.uk/geo/scripts/ol_6_15_1.js"></script>
+
+			<script src=src="https://maps.nls.uk/geo/scripts/html2canvas.js"></script>
+
+			<script type="text/javascript" src="https://maps.nls.uk/geo/scripts/gaz.js"></script>
+			<script type="text/javascript" src="https://maps.nls.uk/geo/scripts/conversion.js"></script>
+			<script type="text/javascript" src="https://maps.nls.uk/geo/scripts/ol-ext-2025-11.js"></script>
+
+			<!-- <script src="https://viglino.github.io/ol-ext/dist/ol-ext.min.js"></script> -->
+
+			<script src="https://cdn.jsdelivr.net/npm/@allmaps/openlayers/dist/bundled/allmaps-openlayers-8.umd.js"></script>
+			
+		
+		    <script type="text/javascript" src="/assets/scripts/jspdf.min.js" async></script>
+			<script type="text/javascript" src="https://maps.nls.uk/geo/scripts/FileSaver.min.js" async></script>
+			
+			<script type="text/javascript" src="GpPluginOpenLayers.js" ></script>
+			
+			
+			<script type="text/javascript" src="https://maps.nls.uk/geo/scripts/globalMapTiles.js" async></script>
+			<script type="text/javascript" src="https://maps.nls.uk/geo/scripts/elevationProvider.js" async></script>
+				
+			<!-- <script type="text/javascript" src="https://ignf.github.io/geoportal-extensions/openlayers-latest/dist/GpPluginOpenLayers.js" data-key="essentiels" ></script> -->
+
+			<script type="text/javascript" src="https://maps.nls.uk/geo/scripts/turf.min.js" async></script>
+
+			<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>		-->
+			
+			<!-- <script type="text/javascript" src="href="https://maps.nls.uk/geo/scripts/chartist-plugin-axistitle.js" async></script>	-->
+			
+
+			<script type="text/javascript" src="https://maps.nls.uk/geo/scripts/20250410/explore-layers-ol6.js"></script>
+			<script type="text/javascript" src="explore-ol6.js"></script>
+
+
+	<script>
+	
+
+	
+
+
+
+
+	    jQuery("#show").click(function(){
+	        jQuery("#searchSideBar").show();
+	        jQuery("#show").hide();
+	    });
+
+
+             var windowWidth = $(window).width();
+             var windowHeight = $(window).height();
+	
+	    jQuery("#hide").click(function(){
+	        jQuery("#searchSideBar").hide();
+
+			$('#map').focus();
+
+	    });
+
+	    jQuery("#hide2").click(function(){
+	        jQuery("#searchSideBar").hide();
+			jQuery("#show").show();
+
+			$('#map').focus();
+
+	    });
+		
+	    jQuery("#hidechart").click(function(){
+			stopmeasuringElevation();
+			$('#map').focus();
+	    });
+		
+	    jQuery("#hidelayers").click(function(){
+	        jQuery("#layersSideBarOutlines").hide();
+
+			jQuery("#showlayersOutlinesExplore").show()
+
+
+				
+	             var windowWidth = $(window).width();
+
+
+			if ($("#date") != null ) { jQuery("#date").hide(); }
+			
+//			if (!$("#layersSideBarOutlines").is(":visible")) { jQuery("#showlayersOutlinesExplore").show(); }
+			
+			 		if (windowWidth <= 850)
+				{
+			        jQuery("#exploreslideroverlaymobile").show();
+			        jQuery("#exploreslideroverlay").hide();
+				}
+			else
+				{
+			        jQuery("#exploreslideroverlay").show();
+			        jQuery("#exploreslideroverlaymobile").hide();
+				}
+			$('#map').focus();
+	    });
+
+	    jQuery("#hidelayerSelectBackground").click(function(){
+		
+			switchtosinglelayers();
+		
+		});
+		
+		
+	    jQuery("#showlayersOutlinesExplore").click(function(){
+	        jQuery("#layersSideBarOutlines").show();
+	        jQuery("#date").show();
+	        jQuery("#showlayersOutlinesExplore").hide();
+	        jQuery("#exploreslideroverlaymobile").hide();
+			splitLists();
+	    });
+
+	    jQuery("#show").click(function(){
+	        jQuery("#searchSideBar").show();
+	        jQuery("#show").hide();
+	    });
+
+	    jQuery("#footermore").click(function(){
+	        jQuery("#morePanel").show();
+			jQuery("#footermore").hide();
+		   });
+		   
+		jQuery("#closemorePanel").click(function(){
+	        jQuery("#morePanel").hide();
+//			document.getElementById("WMTSModal").style.display = "none";
+			jQuery("#footermore").show();
+		});
+		
+	   jQuery("#mapkeypanelhide").click(function(){
+	        jQuery("#mapkeypanel").hide();
+			$('#map').focus();
+	    });	
+
+	   jQuery("#showImport").click(function(){
+			$("#importPanel").removeClass("hidden");
+	        jQuery("#importPanel").show();
+			jQuery("#searchSideBar").hide();	
+	        jQuery("#layersSideBarOutlines").hide();
+	        jQuery("#showlayersOutlinesExplore").show();
+			$('#map').focus();
+	    });	
+
+	   jQuery("#importPanelClose").click(function(){
+	        jQuery("#importPanel").hide();
+			$('#map').focus();
+	    });	
+
+
+
+function openFancy(){ 
+           setTimeout( function() {$('#autoStart').trigger('click'); },500); // show after a half-second
+           } 
+
+           // create cookie on button click
+           function dontShow(){
+           $.fancybox.close(); // optional
+           $.cookie('NLS-visited-explore-2024', 'yes', { expires: 80 }); // expiration in 80 days
+           }
+/*
+     $(document).ready(function() {
+               var visited = $.cookie('NLS-visited-explore-2024'); // create cookie 'visited' with no value
+               if (visited == 'yes') {
+                   return false;
+               } else {
+                   openFancy(); // cookie has no value so launch fancybox on page load
+
+               }
+			   
+			if ( $(window).height() >= 400 )
+			{
+			   $('#autoStart').fancybox({
+					closeClickOutside : true,
+					onComplete: function() {
+					if(history.pushState) {
+						history.pushState(null, null, '#');
+						 }
+						 else {
+							 location.hash = '#';
+						 }
+				   }
+			   });
+			}
+     });
+*/
+
+	
+
+
+	
+	map.addControl(new ol.control.CanvasAttribution({ canvas: true }));
+	// Add a title control
+	map.addControl(new ol.control.CanvasTitle({ 
+	  title: 'my title', 
+	  visible: false,
+	  style: new ol.style.Style({ text: new ol.style.Text({ font: '20px "Lucida Grande",Verdana,Geneva,Lucida,Arial,Helvetica,sans-serif'}) })
+	}));
+
+
+
+
+	</script>
+
+
+
+</body>
+</html>
