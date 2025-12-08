@@ -1,4 +1,4 @@
-﻿
+// CGT: Adding comment﻿ here to test github connectivity
 var overlayTree; // tree structure of historic overlayTree
 var overlay; //current historic overlay node
 var overlayOldName; // former historic overlay name
@@ -17750,4 +17750,5 @@ setTimeout( function(){
 						});
 	 
 	 
+
 		});
