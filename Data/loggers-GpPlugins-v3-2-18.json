@@ -1,0 +1,250 @@
+[
+  {
+    "name": "AltiRequestFactory",
+    "level": "SILENT"
+  },
+  {
+    "name": "AltiRequestREST",
+    "level": "SILENT"
+  },
+  {
+    "name": "AltiRequestWPS",
+    "level": "SILENT"
+  },
+  {
+    "name": "AltiResponseFactory",
+    "level": "SILENT"
+  },
+  {
+    "name": "AutoCompleteResponseFactory",
+    "level": "SILENT"
+  },
+  {
+    "name": "AutoConfResponseFactory",
+    "level": "SILENT"
+  },
+  {
+    "name": "checkrightmanagement",
+    "level": "SILENT"
+  },
+  {
+    "name": "CommonService",
+    "level": "SILENT"
+  },
+  {
+    "name": "config",
+    "level": "SILENT"
+  },
+  {
+    "name": "CRS",
+    "level": "SILENT"
+  },
+  {
+    "name": "draggable",
+    "level": "SILENT"
+  },
+  {
+    "name": "Drawing",
+    "level": "SILENT"
+  },
+  {
+    "name": "DrawingDOM",
+    "level": "SILENT"
+  },
+  {
+    "name": "editor",
+    "level": "SILENT"
+  },
+  {
+    "name": "editor-filter",
+    "level": "SILENT"
+  },
+  {
+    "name": "editor-group",
+    "level": "SILENT"
+  },
+  {
+    "name": "editor-layer",
+    "level": "SILENT"
+  },
+  {
+    "name": "editor-legend",
+    "level": "SILENT"
+  },
+  {
+    "name": "editor-search",
+    "level": "SILENT"
+  },
+  {
+    "name": "editor-style",
+    "level": "SILENT"
+  },
+  {
+    "name": "editor-themes",
+    "level": "SILENT"
+  },
+  {
+    "name": "elevationpath",
+    "level": "SILENT"
+  },
+  {
+    "name": "extended KML format",
+    "level": "SILENT"
+  },
+  {
+    "name": "GeocodeRequestFactory",
+    "level": "SILENT"
+  },
+  {
+    "name": "GeocodeRequestREST",
+    "level": "SILENT"
+  },
+  {
+    "name": "geoportalattribution",
+    "level": "SILENT"
+  },
+  {
+    "name": "GeoportalMousePosition",
+    "level": "SILENT"
+  },
+  {
+    "name": "getfeatureinfo",
+    "level": "SILENT"
+  },
+  {
+    "name": "GfiUtils",
+    "level": "SILENT"
+  },
+  {
+    "name": "Gp.Services.Alti",
+    "level": "SILENT"
+  },
+  {
+    "name": "Gp.Services.AutoComplete",
+    "level": "SILENT"
+  },
+  {
+    "name": "Gp.Services.AutoConf",
+    "level": "SILENT"
+  },
+  {
+    "name": "Gp.Services.Geocode",
+    "level": "SILENT"
+  },
+  {
+    "name": "Gp.Services.ProcessIsoCurve",
+    "level": "SILENT"
+  },
+  {
+    "name": "Gp.Services.ReverseGeocode",
+    "level": "SILENT"
+  },
+  {
+    "name": "Gp.Services.Route",
+    "level": "SILENT"
+  },
+  {
+    "name": "interactions",
+    "level": "SILENT"
+  },
+  {
+    "name": "isocurve",
+    "level": "SILENT"
+  },
+  {
+    "name": "JSONP",
+    "level": "SILENT"
+  },
+  {
+    "name": "layerimport",
+    "level": "SILENT"
+  },
+  {
+    "name": "layerswitcher",
+    "level": "SILENT"
+  },
+  {
+    "name": "locationselector",
+    "level": "SILENT"
+  },
+  {
+    "name": "LocationSelectorDOM",
+    "level": "SILENT"
+  },
+  {
+    "name": "measurearea",
+    "level": "SILENT"
+  },
+  {
+    "name": "measureazimut",
+    "level": "SILENT"
+  },
+  {
+    "name": "measurelength",
+    "level": "SILENT"
+  },
+  {
+    "name": "measures",
+    "level": "SILENT"
+  },
+  {
+    "name": "parser",
+    "level": "SILENT"
+  },
+  {
+    "name": "ProcessIsoCurveRequest",
+    "level": "SILENT"
+  },
+  {
+    "name": "ProcessIsoCurveResponseFactory",
+    "level": "SILENT"
+  },
+  {
+    "name": "proxifyUrl",
+    "level": "SILENT"
+  },
+  {
+    "name": "reversegeocoding",
+    "level": "SILENT"
+  },
+  {
+    "name": "route",
+    "level": "SILENT"
+  },
+  {
+    "name": "RouteDOM",
+    "level": "SILENT"
+  },
+  {
+    "name": "RouteRequestFactory",
+    "level": "SILENT"
+  },
+  {
+    "name": "RouteRequestREST",
+    "level": "SILENT"
+  },
+  {
+    "name": "RouteResponseFactory",
+    "level": "SILENT"
+  },
+  {
+    "name": "searchengine",
+    "level": "SILENT"
+  },
+  {
+    "name": "sourcewms",
+    "level": "SILENT"
+  },
+  {
+    "name": "sourcewmts",
+    "level": "SILENT"
+  },
+  {
+    "name": "toolbox",
+    "level": "SILENT"
+  },
+  {
+    "name": "XHR",
+    "level": "SILENT"
+  }
+]
